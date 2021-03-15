@@ -83,6 +83,9 @@ specialCharArray = [
 function generatePassword() {
   // Create a variable to store our generated password
   var password = "";
+  //Create variable to store new array for password characters
+  let chosenCharArray = [];
+  // Create prompt password length
 
   // Logic would go here
 
