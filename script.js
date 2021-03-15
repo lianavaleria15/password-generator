@@ -83,12 +83,25 @@ specialCharArray = [
 // Declare function which generates password
 function generatePassword() {
   // Create a variable to store our generated password
-  var password = "";
+  var password;
   //Create variable to store new array for password characters
   let chosenCharArray = [];
   // Create prompt password length
   const passwordLength = prompt(
     "How many characters would you want your password to be?"
+  );
+  //create confirm functions for type of character and validate
+  const isLowerCase = confirm(
+    "Do you want password to include lowercase characters?"
+  );
+  const isUpperCase = confirm(
+    "Do you want password to include uppercase characters?"
+  );
+  const isNumeric = confirm(
+    "Do you want password to include numeric characters?"
+  );
+  const isSpecialChar = confirm(
+    "Do you want password to include special characters?"
   );
 
   // Logic would go here
