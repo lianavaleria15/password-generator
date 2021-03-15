@@ -79,32 +79,44 @@ specialCharArray = [
   "-",
   "_",
 ];
+let chosenCharArray = [];
+// Create prompt password length
+const passwordLength = prompt(
+  "How many characters would you want your password to be?"
+);
+console.log(passwordLength);
 
-// Declare function which generates password
-function generatePassword() {
-  // Create a variable to store our generated password
-  var password;
-  //Create variable to store new array for password characters
-  let chosenCharArray = [];
-  // Create prompt password length
-  const passwordLength = prompt(
-    "How many characters would you want your password to be?"
-  );
+//validation password length
+if (passwordLength >= 8 && passwordLength <= 128) {
   //create confirm functions for type of character and validate
   const isLowerCase = confirm(
     "Do you want password to include lowercase characters?"
   );
+  console.log(isLowerCase);
+
   const isUpperCase = confirm(
     "Do you want password to include uppercase characters?"
   );
-  const isNumeric = confirm(
+  console.log(isUpperCase);
+
+  const isNumericChar = confirm(
     "Do you want password to include numeric characters?"
   );
+  console.log(isNumericChar);
+
   const isSpecialChar = confirm(
     "Do you want password to include special characters?"
   );
+  console.log(isSpecialChar);
+}
+
+// Declare function which generates password
+function generatePassword() {
+  // Create a variable to store our generated password
+  var password = "";
 
   // Logic would go here
+  //Create variable to store new array for password characters
 
   // Return our created password
   return password;
