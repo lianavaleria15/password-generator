@@ -85,10 +85,9 @@ const passwordLength = prompt(
   "How many characters would you want your password to be?"
 );
 console.log(passwordLength);
-
 //validation password length
 if (passwordLength >= 8 && passwordLength <= 128) {
-  //create confirm functions for type of character and validate
+  //create confirm functions for type of character and validate if criteria is met
   const isLowerCase = confirm(
     "Do you want password to include lowercase characters?"
   );
@@ -108,6 +107,23 @@ if (passwordLength >= 8 && passwordLength <= 128) {
     "Do you want password to include special characters?"
   );
   console.log(isSpecialChar);
+} else {
+  alert("Password should have between 8 and 128 characters length");
+}
+// validation criteria for at least one of the characters type
+if (isLowerCase && isUpperCase && isNumericChar && isSpecialChar) {
+  chosenCharArray = lowerCaseArray.concat(
+    upperCaseArray,
+    numericArray,
+    specialCharArray
+  );
+  console.log(chosenCharArray);
+} else if (isLowerCase && !isUpperCase && is){
+
+}else if (){}
+
+else {
+  alert("At least one type of character should be chosen");
 }
 
 // Declare function which generates password
@@ -116,7 +132,6 @@ function generatePassword() {
   var password = "";
 
   // Logic would go here
-  //Create variable to store new array for password characters
 
   // Return our created password
   return password;
