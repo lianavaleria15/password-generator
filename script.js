@@ -108,12 +108,14 @@ if (passwordLength >= 8 && passwordLength <= 128) {
     console.log(chosenCharArray);
   }
 
-  isNumericChar = confirm(
+  const isNumericChar = confirm(
     "Do you want password to include numeric characters?"
   );
-  console.log(isNumericChar);
   if (isNumericChar) {
+    let chosenCharArray = chosenCharArray.concat(numericArray);
+    console.log(chosenCharArray);
   }
+  console.log(isNumericChar);
 
   isSpecialChar = confirm(
     "Do you want password to include special characters?"
