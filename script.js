@@ -79,31 +79,43 @@ specialCharArray = [
   "-",
   "_",
 ];
-let chosenCharArray = [];
+chosenCharArray = [];
 // Create prompt password length
 const passwordLength = prompt(
   "How many characters would you want your password to be?"
 );
 console.log(passwordLength);
+
 //validation password length
 if (passwordLength >= 8 && passwordLength <= 128) {
-  //create confirm functions for type of character and validate if criteria is met
-  const isLowerCase = confirm(
+  //validation lowercase criterion and forms new array from which password characters will be picked
+  // let chosenCharArray;
+  isLowerCase = confirm(
     "Do you want password to include lowercase characters?"
   );
   console.log(isLowerCase);
-
+  if (isLowerCase) {
+    lowerCaseArray;
+  }
+  // console.log(lowerCaseArray);
+  //validation uppercase criterion and password array concatenation
   const isUpperCase = confirm(
     "Do you want password to include uppercase characters?"
   );
-  console.log(isUpperCase);
+  // console.log(isUpperCase);
+  if (isUpperCase) {
+    let chosenCharArray = lowerCaseArray.concat(upperCaseArray);
+    console.log(chosenCharArray);
+  }
 
-  const isNumericChar = confirm(
+  isNumericChar = confirm(
     "Do you want password to include numeric characters?"
   );
   console.log(isNumericChar);
+  if (isNumericChar) {
+  }
 
-  const isSpecialChar = confirm(
+  isSpecialChar = confirm(
     "Do you want password to include special characters?"
   );
   console.log(isSpecialChar);
@@ -111,20 +123,20 @@ if (passwordLength >= 8 && passwordLength <= 128) {
   alert("Password should have between 8 and 128 characters length");
 }
 // validation criteria for at least one of the characters type
-if (isLowerCase && isUpperCase && isNumericChar && isSpecialChar) {
-  chosenCharArray = lowerCaseArray.concat(
-    upperCaseArray,
-    numericArray,
-    specialCharArray
-  );
-  console.log(chosenCharArray);
-} else if (isLowerCase && !isUpperCase && is){
+// if (!isLowerCase && !isUpperCase && !isNumericChar && !isSpecialChar) {
+//   chosenCharArray = lowerCaseArray.concat(
+//     upperCaseArray,
+//     numericArray,
+//     specialCharArray
+//   );
+//   console.log(chosenCharArray);
+// } else if (isLowerCase && !isUpperCase && isNumeric){
 
-}else if (){}
+// }else if (){}
 
-else {
-  alert("At least one type of character should be chosen");
-}
+// else {
+alert("At least one type of character should be chosen");
+// }
 
 // Declare function which generates password
 function generatePassword() {
