@@ -80,44 +80,6 @@ specialCharArray = [
   "_",
 ];
 
-//validation password length
-if (passwordLength >= 8 && passwordLength <= 128) {
-  //validation lowercase criterion and forms new array from which password characters will be picked
-  // let chosenCharArray;
-  isLowerCase = confirm(
-    "Do you want password to include lowercase characters?"
-  );
-  console.log(isLowerCase);
-  if (isLowerCase) {
-    lowerCaseArray;
-  }
-  // console.log(lowerCaseArray);
-  //validation uppercase criterion and password array concatenation
-  const isUpperCase = confirm(
-    "Do you want password to include uppercase characters?"
-  );
-  // console.log(isUpperCase);
-  if (isUpperCase) {
-    let chosenCharArray = lowerCaseArray.concat(upperCaseArray);
-    console.log(chosenCharArray);
-  }
-
-  const isNumericChar = confirm(
-    "Do you want password to include numeric characters?"
-  );
-  if (isNumericChar) {
-    let chosenCharArray = chosenCharArray.concat(numericArray);
-    console.log(chosenCharArray);
-  }
-  console.log(isNumericChar);
-
-  isSpecialChar = confirm(
-    "Do you want password to include special characters?"
-  );
-  console.log(isSpecialChar);
-} else {
-  alert("Password should have between 8 and 128 characters length");
-}
 // validation criteria for at least one of the characters type
 // if (!isLowerCase && !isUpperCase && !isNumericChar && !isSpecialChar) {
 //   chosenCharArray = lowerCaseArray.concat(
@@ -158,10 +120,38 @@ function generatePassword() {
   }
   console.log(PasswordNumber(passwordLength));
 
-  //
+  //validation password length
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    // confirm popup box for lowercase characters
+    isLowerCase = confirm(
+      "Do you want password to include lowercase characters?"
+    );
+    console.log(isLowerCase);
+    //confirm popup box for uppercase characters
+    isUpperCase = confirm(
+      "Do you want password to include uppercase characters?"
+    );
+    console.log(isUpperCase);
+    //confirm popup box for numeric characters
+    isNumericChar = confirm(
+      "Do you want password to include numeric characters?"
+    );
+    console.log(isNumericChar);
+    //confirm popup box for special character
+    isSpecialChar = confirm(
+      "Do you want password to include special characters?"
+    );
+    console.log(isSpecialChar);
+  } else {
+    alert("Password should have between 8 and 128 characters length");
+  }
+  //validation type of characters chosen
+  if (isLowerCase) {
+    chosenCharArray = lowerCaseArray;
+  }
 
   // Return our created password
-  return password;
+  else return password;
 }
 // Write password to the #password input
 function writePassword() {
