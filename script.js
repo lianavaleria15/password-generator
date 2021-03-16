@@ -79,6 +79,10 @@ specialCharArray = [
   "-",
   "_",
 ];
+let isLowerCase;
+let isUpperCase;
+let isNumericChar;
+let isSpecialChar;
 // Declare new array to contain types of character chosen
 const chosenCharArray = [];
 // Create prompt password length and convert length of password as a string in a number
@@ -111,37 +115,25 @@ if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
     "Do you want password to include special characters?"
   );
   console .log(isSpecialChar);
-}
+} else {alert("Password should be between 8 and 128 characters")}
+
+ // add validation function for character type
+ if (isLowerCase) {
+  chosenCharArray = lowerCaseArray;
+} else if (isUpperCase) {
+  chosenCharArray.concat(upperCaseArray);
+} else if (isNumericChar) {
+  chosenCharArray.concat(numericArray); }
+  else {
+    chosenCharArray.concat(specialCharArray);}
+ else {alert("At least one type of character should be");}
+
+
 
 // Declare function which generates password
 function generatePassword() {
   // Create a variable to store our generated password
   var password = "";
-
-  //validation password length
-
-  add validation function for character type
-    if (isLowerCase) {
-    chosenCharArray = lowerCaseArray;
-  } else if (isUpperCase) {
-    chosenCharArray.concat(upperCaseArray);
-  } else if (isNumericChar) {
-    chosenCharArray.concat(numericArray); }
-    else (isSpecialChar){
-      chosenCharArray.concat(specialCharArray);}
-   else { alert("At least one type of character should be)
-  } else {alert("Password should have between 8 and 128 characters length");
-  } }
-  // validation type of characters chosen
-  if (isLowerCase) {
-    chosenCharArray = lowerCaseArray;
-  } else if (isUpperCase) {
-    chosenCharArray.concat(upperCaseArray);
-  } else if (isNumericChar) {
-    chosenCharArray.concat(numericArray); }
-    else (isSpecialChar){
-      chosenCharArray.concat(specialCharArray);}
-   else { alert("At least one type of character should be selected")}
 
   // Return our created password
   return password;
