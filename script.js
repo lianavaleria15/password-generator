@@ -79,12 +79,6 @@ specialCharArray = [
   "-",
   "_",
 ];
-chosenCharArray = [];
-// Create prompt password length
-const passwordLength = prompt(
-  "How many characters would you want your password to be?"
-);
-console.log(passwordLength);
 
 //validation password length
 if (passwordLength >= 8 && passwordLength <= 128) {
@@ -145,7 +139,26 @@ function generatePassword() {
   // Create a variable to store our generated password
   var password = "";
 
-  // Logic would go here
+  // Declare new array to contain types of character chosen
+  chosenCharArray = [];
+
+  // Create prompt password length
+  const passwordLength = prompt(
+    "How many characters would you want your password to be?"
+  );
+  console.log(passwordLength);
+
+  //convert string to a number
+  function PasswordNumber(passwordLength, _base) {
+    passwordLength = parseInt(passwordLength, 10);
+    if (isNaN(parsed)) {
+      return 0;
+    }
+    return parsed * 100;
+  }
+  console.log(PasswordNumber(passwordLength));
+
+  //
 
   // Return our created password
   return password;
