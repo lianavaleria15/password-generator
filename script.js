@@ -79,79 +79,72 @@ specialCharArray = [
   "-",
   "_",
 ];
-
-// validation criteria for at least one of the characters type
-// if (!isLowerCase && !isUpperCase && !isNumericChar && !isSpecialChar) {
-//   chosenCharArray = lowerCaseArray.concat(
-//     upperCaseArray,
-//     numericArray,
-//     specialCharArray
-//   );
-//   console.log(chosenCharArray);
-// } else if (isLowerCase && !isUpperCase && isNumeric){
-
-// }else if (){}
-
-// else {
-alert("At least one type of character should be chosen");
-// }
+// Declare new array to contain types of character chosen
+const chosenCharArray = [];
+// Create prompt password length and convert length of password as a string in a number
+const PasswordNumber = () => {
+  const passwordLength = prompt(
+    "How many characters would you want your password to be?"
+  );
+  console.log(passwordLength);
+  const passwordLengthNumber = parseInt(passwordLength, 10);
+  console.log(passwordLengthNumber);
+};
+if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
+  // confirm popup box for lowercase characters
+  isLowerCase = confirm(
+    "Do you want password to include lowercase characters?"
+  );
+  console.log(isLowerCase);
+  //confirm popup box for uppercase characters
+  isUpperCase = confirm(
+    "Do you want password to include uppercase characters?"
+  );
+  console.log(isUpperCase);
+  //confirm popup box for numeric characters
+  isNumericChar = confirm(
+    "Do you want password to include numeric characters?"
+  );
+  console.log(isNumericChar);
+  //confirm popup box for special character
+  isSpecialChar = confirm(
+    "Do you want password to include special characters?"
+  );
+  console .log(isSpecialChar);
+}
 
 // Declare function which generates password
 function generatePassword() {
   // Create a variable to store our generated password
   var password = "";
 
-  // Declare new array to contain types of character chosen
-  chosenCharArray = [];
-
-  // Create prompt password length
-  const passwordLength = prompt(
-    "How many characters would you want your password to be?"
-  );
-  console.log(passwordLength);
-
-  //convert string to a number
-  function PasswordNumber(passwordLength, _base) {
-    passwordLength = parseInt(passwordLength, 10);
-    if (isNaN(parsed)) {
-      return 0;
-    }
-    return parsed * 100;
-  }
-  console.log(PasswordNumber(passwordLength));
-
   //validation password length
-  if (passwordLength >= 8 && passwordLength <= 128) {
-    // confirm popup box for lowercase characters
-    isLowerCase = confirm(
-      "Do you want password to include lowercase characters?"
-    );
-    console.log(isLowerCase);
-    //confirm popup box for uppercase characters
-    isUpperCase = confirm(
-      "Do you want password to include uppercase characters?"
-    );
-    console.log(isUpperCase);
-    //confirm popup box for numeric characters
-    isNumericChar = confirm(
-      "Do you want password to include numeric characters?"
-    );
-    console.log(isNumericChar);
-    //confirm popup box for special character
-    isSpecialChar = confirm(
-      "Do you want password to include special characters?"
-    );
-    console.log(isSpecialChar);
-  } else {
-    alert("Password should have between 8 and 128 characters length");
-  }
-  //validation type of characters chosen
+
+  add validation function for character type
+    if (isLowerCase) {
+    chosenCharArray = lowerCaseArray;
+  } else if (isUpperCase) {
+    chosenCharArray.concat(upperCaseArray);
+  } else if (isNumericChar) {
+    chosenCharArray.concat(numericArray); }
+    else (isSpecialChar){
+      chosenCharArray.concat(specialCharArray);}
+   else { alert("At least one type of character should be)
+  } else {alert("Password should have between 8 and 128 characters length");
+  } }
+  // validation type of characters chosen
   if (isLowerCase) {
     chosenCharArray = lowerCaseArray;
-  }
+  } else if (isUpperCase) {
+    chosenCharArray.concat(upperCaseArray);
+  } else if (isNumericChar) {
+    chosenCharArray.concat(numericArray); }
+    else (isSpecialChar){
+      chosenCharArray.concat(specialCharArray);}
+   else { alert("At least one type of character should be selected")}
 
   // Return our created password
-  else return password;
+  return password;
 }
 // Write password to the #password input
 function writePassword() {
