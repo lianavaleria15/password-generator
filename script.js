@@ -91,44 +91,49 @@ const PasswordNumber = () => {
     "How many characters would you want your password to be?"
   );
   console.log(passwordLength);
-  const passwordLengthNumber = parseInt(passwordLength, 10);
-  console.log(passwordLengthNumber);
+  return;
 };
+const passwordLengthNumber = parseInt(passwordLength, 10);
+console.log(passwordLengthNumber);
+
+//validation password length and confirm type of characters
 if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
   // confirm popup box for lowercase characters
-  isLowerCase = confirm(
+  const isLowerCase = confirm(
     "Do you want password to include lowercase characters?"
   );
   console.log(isLowerCase);
   //confirm popup box for uppercase characters
-  isUpperCase = confirm(
+  const isUpperCase = confirm(
     "Do you want password to include uppercase characters?"
   );
   console.log(isUpperCase);
   //confirm popup box for numeric characters
-  isNumericChar = confirm(
+  const isNumericChar = confirm(
     "Do you want password to include numeric characters?"
   );
   console.log(isNumericChar);
   //confirm popup box for special character
-  isSpecialChar = confirm(
+  const isSpecialChar = confirm(
     "Do you want password to include special characters?"
   );
-  console .log(isSpecialChar);
-} else {alert("Password should be between 8 and 128 characters")}
+  console.log(isSpecialChar);
+} else {
+  alert("Password should be between 8 and 128 characters");
+}
 
- // add validation function for character type
- if (isLowerCase) {
-  chosenCharArray = lowerCaseArray;
+// add validation function for character type
+if (isLowerCase) {
+  chosenCharArray.push(lowerCaseArray);
 } else if (isUpperCase) {
   chosenCharArray.concat(upperCaseArray);
 } else if (isNumericChar) {
-  chosenCharArray.concat(numericArray); }
-  else {
-    chosenCharArray.concat(specialCharArray);}
- else {alert("At least one type of character should be");}
-
-
+  chosenCharArray.concat(numericArray);
+} else if (isSpecialChar) {
+  chosenCharArray.concat(specialCharArray);
+} else {
+  alert("At least one type of character should be");
+}
 
 // Declare function which generates password
 function generatePassword() {
