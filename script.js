@@ -82,23 +82,19 @@ const specialCharArray = [
   "-",
   "_",
 ];
-
+//declare variables which check what type of characters were chosen
 let isLowerCase;
 let isUpperCase;
 let isNumericChar;
 let isSpecialChar;
 
-// Declare new array to contain types of character chosen
+// Declare new array to store the arrays which contains the type of character selected
 const chosenCharArray = [];
-// Create prompt password length and convert length of password as a string in a number
-
-// //get random index of options array
-//
-// // get random character from the random array
 
 // Declare function which generates password
 function generatePassword() {
   const passwordArray = [];
+  // Create prompt password length and convert length of password as a string in a number
   const passwordLength = prompt(
     "How many characters would you want your password to be?"
   );
@@ -149,7 +145,7 @@ function generatePassword() {
     alert("At least one type of character should be selected");
   }
   console.log(chosenCharArray);
-
+  //get random index of options array and random character from the random array
   for (let i = 0; i < passwordLengthNumber; i++) {
     let randomArray =
       chosenCharArray[Math.floor(Math.random() * chosenCharArray.length)];
