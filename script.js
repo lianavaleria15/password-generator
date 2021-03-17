@@ -126,11 +126,11 @@ if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
 if (isLowerCase) {
   chosenCharArray.push(lowerCaseArray);
 } else if (isUpperCase) {
-  chosenCharArray.concat(upperCaseArray);
+  chosenCharArray.push(upperCaseArray);
 } else if (isNumericChar) {
-  chosenCharArray.concat(numericArray);
+  chosenCharArray.push(numericArray);
 } else if (isSpecialChar) {
-  chosenCharArray.concat(specialCharArray);
+  chosenCharArray.push(specialCharArray);
 } else {
   alert("At least one type of character should be");
 }
