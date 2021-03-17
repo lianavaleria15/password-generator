@@ -91,10 +91,9 @@ const PasswordNumber = () => {
     "How many characters would you want your password to be?"
   );
   console.log(passwordLength);
-  return;
+  const passwordLengthNumber = parseInt(passwordLength, 10);
+  console.log(passwordLengthNumber);
 };
-const passwordLengthNumber = parseInt(passwordLength, 10);
-console.log(passwordLengthNumber);
 
 //validation password length and confirm type of characters
 if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
@@ -122,7 +121,7 @@ if (passwordLengthNumber >= 8 && passwordLengthNumber <= 128) {
   alert("Password should be between 8 and 128 characters");
 }
 
-// add validation function for character type
+// add validation function for character type and forms a new array with type characters chose
 if (isLowerCase) {
   chosenCharArray.push(lowerCaseArray);
 } else if (isUpperCase) {
@@ -134,6 +133,10 @@ if (isLowerCase) {
 } else {
   alert("At least one type of character should be");
 }
+//get random index of options array
+let randomArray =
+  chosenCharArray[Math.floor(Math.random() * chosenCharArray.length)];
+// get random character from the random array
 
 // Declare function which generates password
 function generatePassword() {
