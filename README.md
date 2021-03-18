@@ -24,6 +24,16 @@ In this project I had to write a Javascript code that would randomly generate a 
   - I declared a `for` loop, which would pick a random array from `chosenCharArray` and a random character, which would then be pushed in a password array
   - as a last step, I transformed the password array into a string and returned the password to the client
 
+## Link deployed password generator
+
+Click [here](https://lianavaleria15.github.io/password-generator) to access the password generator.
+
 ## Screenshots deployed password generator
 
-###
+### Console screenshot
+
+![console log password generator](assets/images/password_console1.PNG)
+
+### Generated password
+
+![screenshot generated password](assets/images/password_generator.png)
