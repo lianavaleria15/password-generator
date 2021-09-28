@@ -138,6 +138,9 @@ function generatePassword() {
       // add  character choice to an object
       characterChoicesObject.lowercase = isLowerCaseType;
       console.log(characterChoicesObject);
+    } else if (isUpperCaseType) {
+    } else if (isNumberType) {
+    } else if (isSpecialCharType) {
     }
   } else {
     alert("Password length should be a number between 8 and 128.");
