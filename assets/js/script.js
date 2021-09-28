@@ -106,6 +106,11 @@ function generatePassword() {
   variable
   */
   if (passwordLength >= 8 && passwordLength <= 128) {
+    //declare variables for each character type choice and assign them a confirm function
+    const isLowerCaseType = confirm(
+      "Should the password include lowercase characters?"
+    );
+    console.log(isLowerCaseType);
   } else {
     alert("Password length should be a number between 8 and 128.");
   }
