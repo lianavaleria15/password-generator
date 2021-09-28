@@ -144,7 +144,8 @@ function generatePassword() {
     }
     return characterChoicesObject;
   }
-  getPasswordCriteria();
+  var characterChoices = getPasswordCriteria();
+  console.log(characterChoices);
   //pick a random key from the character choices object
   //assign the value of correspondent array of characters
   //pick a random character from the array and push it to the variable that stores the password
