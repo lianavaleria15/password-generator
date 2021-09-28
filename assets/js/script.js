@@ -95,8 +95,13 @@ let specialCharacterArray = [
 ];
 
 function generatePassword() {
-  const characterChoices = {};
-  console.log(characterChoices);
+  const characterChoicesObject = {
+    lowercase: "false",
+    uppercase: "false",
+    number: "false",
+    special: "false",
+  };
+  // console.log(characterChoicesObject);
   // prompt user to choose password length and convert the passwordLength string into a number
   const passwordLength = parseInt(
     prompt("How many characters should the password be?")
@@ -129,8 +134,10 @@ function generatePassword() {
       !isSpecialCharType
     ) {
       alert("At least one type of character should be selected.");
-    } else {
+    } else if (isLowerCaseType) {
       // add  character choice to an object
+      characterChoicesObject.lowercase = isLowerCaseType;
+      console.log(characterChoicesObject);
     }
   } else {
     alert("Password length should be a number between 8 and 128.");
