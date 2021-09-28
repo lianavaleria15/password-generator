@@ -116,6 +116,14 @@ function generatePassword() {
       "Should the password include uppercase characters?"
     );
     console.log(isUpperCaseType);
+
+    const isNumberType = confirm("Should the password include numbers?");
+    console.log(isNumberType);
+
+    const isSpecialCharType = confirm(
+      "Should the password include special characters?"
+    );
+    console.log(isSpecialCharType);
   } else {
     alert("Password length should be a number between 8 and 128.");
   }
