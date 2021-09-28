@@ -95,6 +95,8 @@ let specialCharacterArray = [
 ];
 
 function generatePassword() {
+  const characterChoices = {};
+  console.log(characterChoices);
   // prompt user to choose password length and convert the passwordLength string into a number
   const passwordLength = parseInt(
     prompt("How many characters should the password be?")
@@ -128,6 +130,7 @@ function generatePassword() {
     ) {
       alert("At least one type of character should be selected.");
     } else {
+      // add  character choice to an object
     }
   } else {
     alert("Password length should be a number between 8 and 128.");
