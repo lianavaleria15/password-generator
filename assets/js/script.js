@@ -95,15 +95,19 @@ let specialCharacterArray = [
 ];
 
 function generatePassword() {
-  // prompt user to choose password length
-  const passwordLength = prompt("How many characters should the password be?");
-  console.log(passwordLength);
+  // prompt user to choose password length and convert the passwordLength string into a number
+  const passwordLength = parseInt(
+    prompt("How many characters should the password be?")
+  );
+  console.log(typeof passwordLength);
+
   /* validation for password length, if password length meets criteria 
   add confirm functions for user to pick the type of characters and store into a 
   variable
   */
   if (passwordLength >= 8 && passwordLength <= 128) {
   } else {
+    alert("Password length should be a number between 8 and 128.");
   }
   // validation at least one type of character was chosen, each answer will be added to an object, if not alert and break
   //  declare a new variable, in which the password will be stored: pick a random array of characters, from which pick a random character and push to the new array
