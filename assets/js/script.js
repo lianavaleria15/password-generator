@@ -96,10 +96,10 @@ let specialCharacterArray = [
 
 function generatePassword() {
   const characterChoicesObject = {
-    lowercase: "false",
-    uppercase: "false",
-    number: "false",
-    special: "false",
+    lowercase: "",
+    uppercase: "",
+    number: "",
+    special: "",
   };
   // console.log(characterChoicesObject);
   // prompt user to choose password length and convert the passwordLength string into a number
@@ -116,16 +116,22 @@ function generatePassword() {
     const isLowerCaseType = confirm(
       "Should the password include lowercase characters?"
     );
+    // add variable value to character choices object
+    characterChoicesObject.lowercase = isLowerCaseType;
 
     const isUpperCaseType = confirm(
       "Should the password include uppercase characters?"
     );
+    characterChoicesObject.uppercase = isUpperCaseType;
 
     const isNumberType = confirm("Should the password include numbers?");
+    characterChoicesObject.number = isNumberType;
 
     const isSpecialCharType = confirm(
       "Should the password include special characters?"
     );
+    characterChoicesObject.special = isSpecialCharType;
+    console.log(characterChoicesObject);
     // validation at least one type of character was chosen, each answer will be added to an object, if not alert and break
     if (
       !isLowerCaseType &&
@@ -134,13 +140,10 @@ function generatePassword() {
       !isSpecialCharType
     ) {
       alert("At least one type of character should be selected.");
-    } else if (isLowerCaseType) {
-      // add  character choice to an object
-      characterChoicesObject.lowercase = isLowerCaseType;
-      console.log(characterChoicesObject);
-    } else if (isUpperCaseType) {
-    } else if (isNumberType) {
-    } else if (isSpecialCharType) {
+    } else {
+      //pick a random key from the character choices object
+      //assign the value of correspondent array of characters
+      //pick a random character from the array and push it to the variable that stores the password
     }
   } else {
     alert("Password length should be a number between 8 and 128.");
