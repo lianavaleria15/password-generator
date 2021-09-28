@@ -99,7 +99,6 @@ function generatePassword() {
   const passwordLength = parseInt(
     prompt("How many characters should the password be?")
   );
-  console.log(typeof passwordLength);
 
   /* validation for password length, if password length meets criteria 
   add confirm functions for user to pick the type of characters and store into a 
@@ -110,24 +109,30 @@ function generatePassword() {
     const isLowerCaseType = confirm(
       "Should the password include lowercase characters?"
     );
-    console.log(isLowerCaseType);
 
     const isUpperCaseType = confirm(
       "Should the password include uppercase characters?"
     );
-    console.log(isUpperCaseType);
 
     const isNumberType = confirm("Should the password include numbers?");
-    console.log(isNumberType);
 
     const isSpecialCharType = confirm(
       "Should the password include special characters?"
     );
-    console.log(isSpecialCharType);
+    // validation at least one type of character was chosen, each answer will be added to an object, if not alert and break
+    if (
+      !isLowerCaseType &&
+      !isUpperCaseType &&
+      !isNumberType &&
+      !isSpecialCharType
+    ) {
+      alert("At least one type of character should be selected.");
+    } else {
+    }
   } else {
     alert("Password length should be a number between 8 and 128.");
   }
-  // validation at least one type of character was chosen, each answer will be added to an object, if not alert and break
+
   //  declare a new variable, in which the password will be stored: pick a random array of characters, from which pick a random character and push to the new array
   //convert the array to a string and display password for user
 }
