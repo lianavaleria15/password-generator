@@ -101,54 +101,53 @@ function generatePassword() {
     number: "",
     special: "",
   };
-  // console.log(characterChoicesObject);
-  // prompt user to choose password length and convert the passwordLength string into a number
-  const passwordLength = parseInt(
-    prompt("How many characters should the password be?")
-  );
 
-  /* validation for password length, if password length meets criteria 
-  add confirm functions for user to pick the type of characters and store into a 
-  variable
-  */
-  if (passwordLength >= 8 && passwordLength <= 128) {
-    //declare variables for each character type choice and assign them a confirm function
-    const isLowerCaseType = confirm(
-      "Should the password include lowercase characters?"
+  function getPasswordCriteria() {
+    // prompt user to choose password length; convert the passwordLength string into a number
+    const passwordLength = parseInt(
+      prompt("How many characters should the password be?")
     );
-    // add variable value to character choices object
-    characterChoicesObject.lowercase = isLowerCaseType;
 
-    const isUpperCaseType = confirm(
-      "Should the password include uppercase characters?"
-    );
-    characterChoicesObject.uppercase = isUpperCaseType;
+    //validate password length; prompt for character choices; store choices in an object
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      //declare variables for each character type choice and assign them a confirm function
+      const isLowerCaseType = confirm(
+        "Should the password include lowercase characters?"
+      );
+      // add variable value to character choices object
+      characterChoicesObject.lowercase = isLowerCaseType;
 
-    const isNumberType = confirm("Should the password include numbers?");
-    characterChoicesObject.number = isNumberType;
+      const isUpperCaseType = confirm(
+        "Should the password include uppercase characters?"
+      );
+      characterChoicesObject.uppercase = isUpperCaseType;
 
-    const isSpecialCharType = confirm(
-      "Should the password include special characters?"
-    );
-    characterChoicesObject.special = isSpecialCharType;
-    console.log(characterChoicesObject);
-    // validation at least one type of character was chosen, each answer will be added to an object, if not alert and break
-    if (
-      !isLowerCaseType &&
-      !isUpperCaseType &&
-      !isNumberType &&
-      !isSpecialCharType
-    ) {
-      alert("At least one type of character should be selected.");
+      const isNumberType = confirm("Should the password include numbers?");
+      characterChoicesObject.number = isNumberType;
+
+      const isSpecialCharType = confirm(
+        "Should the password include special characters?"
+      );
+      characterChoicesObject.special = isSpecialCharType;
+
+      // validation at least one type of character was chosen
+      if (
+        !isLowerCaseType &&
+        !isUpperCaseType &&
+        !isNumberType &&
+        !isSpecialCharType
+      ) {
+        alert("At least one type of character should be selected.");
+      }
     } else {
-      //pick a random key from the character choices object
-      //assign the value of correspondent array of characters
-      //pick a random character from the array and push it to the variable that stores the password
+      alert("Password length should be a number between 8 and 128.");
     }
-  } else {
-    alert("Password length should be a number between 8 and 128.");
+    return characterChoicesObject;
   }
-
+  getPasswordCriteria();
+  //pick a random key from the character choices object
+  //assign the value of correspondent array of characters
+  //pick a random character from the array and push it to the variable that stores the password
   //  declare a new variable, in which the password will be stored: pick a random array of characters, from which pick a random character and push to the new array
   //convert the array to a string and display password for user
 }
