@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // store arrays of character options here
-let lowerCaseArray = [
+const lowerCaseArray = [
   "a",
   "b",
   "c",
@@ -31,7 +31,7 @@ let lowerCaseArray = [
   "z",
 ];
 
-let upperCaseArray = [
+const upperCaseArray = [
   "A",
   "B",
   "C",
@@ -59,8 +59,8 @@ let upperCaseArray = [
   "Y",
   "Z",
 ];
-let numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let specialCharacterArray = [
+const numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialCharacterArray = [
   "!",
   '"',
   "#",
@@ -95,12 +95,18 @@ let specialCharacterArray = [
 ];
 
 function generatePassword() {
+  //declare an empty array that would store the character type choices
   const characterChoicesObject = {
-    lowercase: "",
-    uppercase: "",
-    number: "",
-    special: "",
+    isLowerCase: "",
+    isUpperCase: "",
+    isNumber: "",
+    isSpecial: "",
   };
+
+  //   let index = Math.floor(Math.random() *arr.length );
+  // let element = arr[index];
+
+  const characterOptionsArray = [];
 
   function getPasswordCriteria() {
     // prompt user to choose password length; convert the passwordLength string into a number
@@ -114,21 +120,16 @@ function generatePassword() {
       const isLowerCaseType = confirm(
         "Should the password include lowercase characters?"
       );
-      // add variable value to character choices object
-      characterChoicesObject.lowercase = isLowerCaseType;
 
       const isUpperCaseType = confirm(
         "Should the password include uppercase characters?"
       );
-      characterChoicesObject.uppercase = isUpperCaseType;
 
       const isNumberType = confirm("Should the password include numbers?");
-      characterChoicesObject.number = isNumberType;
 
       const isSpecialCharType = confirm(
         "Should the password include special characters?"
       );
-      characterChoicesObject.special = isSpecialCharType;
 
       // validation at least one type of character was chosen
       if (
@@ -138,18 +139,42 @@ function generatePassword() {
         !isSpecialCharType
       ) {
         alert("At least one type of character should be selected.");
+      } else {
+        characterChoicesObject.isLowerCase = isLowerCaseType;
+        characterChoicesObject.isUpperCase = isUpperCaseType;
+        characterChoicesObject.isNumber = isNumberType;
+        characterChoicesObject.isSpecial = isSpecialCharType;
       }
     } else {
       alert("Password length should be a number between 8 and 128.");
     }
-    return characterChoicesObject;
+    // return characterChoicesObject;
   }
-  var characterChoices = getPasswordCriteria();
+
+  //here function to generate random password
+  const characterChoices = getPasswordCriteria();
   console.log(characterChoices);
-  //pick a random key from the character choices object
-  //assign the value of correspondent array of characters
-  //pick a random character from the array and push it to the variable that stores the password
-  //  declare a new variable, in which the password will be stored: pick a random array of characters, from which pick a random character and push to the new array
+
+  //here check which type of characters were chosen; each choice push into an array of choices
+  if (characterChoicesObject.isLowerCase) {
+    characterOptionsArray.push(lowerCaseArray);
+  }
+
+  if (characterChoicesObject.isUpperCase) {
+    characterOptionsArray.push(upperCaseArray);
+  }
+
+  if (characterChoicesObject.isNumber) {
+    characterOptionsArray.push(numberArray);
+  }
+
+  if (characterChoicesObject.isSpecial) {
+    characterOptionsArray.push(specialCharacterArray);
+  }
+  console.log(characterOptionsArray);
+
+  //here pick a random array of characters; then pick a random character and push it to password array variable
+
   //convert the array to a string and display password for user
 }
 
