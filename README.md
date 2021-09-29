@@ -26,3 +26,19 @@ To do so, I created a function called `generatePassword` which would store the u
 7. transformed the password array into a string and displayed it for the user
 
 ## Screenshots
+
+### Initial view
+
+![application view before generate button is clicked](assets/screenshots/screenshot-1.png)
+
+### Prompt message screen
+
+![prompt message screen](assets/screenshots/screenshot-2.jpg)
+
+### Confirm message screen
+
+![confirm message screen](assets/screenshots/screenshot-3.jpg)
+
+### Password generated screen
+
+![password generated on screen](assets/screenshots/screenshot-4.png)
