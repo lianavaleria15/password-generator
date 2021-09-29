@@ -59,7 +59,9 @@ const upperCaseArray = [
   "Y",
   "Z",
 ];
+
 const numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 const specialCharacterArray = [
   "!",
   '"',
@@ -95,7 +97,7 @@ const specialCharacterArray = [
 ];
 
 function generatePassword() {
-  //declare an empty array that would store the character type choices
+  //declare an empty object that would store the character type choices
   const characterChoicesObject = {
     isLowerCase: "",
     isUpperCase: "",
@@ -103,9 +105,9 @@ function generatePassword() {
     isSpecial: "",
   };
 
+  // declare an empty array where character arrays will be pushed according to choices made by user
   const characterOptionsArray = [];
 
-  // function getPasswordCriteria() {
   // prompt user to choose password length; convert the passwordLength string into a number
   const passwordLength = prompt("How many characters should the password be?");
   const parsedPassword = Number.parseInt(passwordLength);
@@ -182,7 +184,7 @@ function generatePassword() {
 
     passwordArray.push(result);
   }
-  const passwordGenerated = passwordArray.toString();
+  const passwordGenerated = passwordArray.join("");
   return passwordGenerated;
 }
 
