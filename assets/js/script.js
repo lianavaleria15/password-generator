@@ -111,6 +111,7 @@ function generatePassword() {
   // prompt user to choose password length; convert the passwordLength string into a number
   const passwordLength = prompt("How many characters should the password be?");
   const parsedPassword = Number.parseInt(passwordLength);
+
   //validate password length; prompt for character choices; store choices in an object
   if (parsedPassword >= 8 && parsedPassword <= 128) {
     //declare variables for each character type choice and assign them a confirm function
@@ -137,15 +138,18 @@ function generatePassword() {
     ) {
       alert("At least one type of character should be selected.");
     } else {
+      // set key values in character choices object with user's answer given in confirms
       characterChoicesObject.isLowerCase = isLowerCaseType;
       characterChoicesObject.isUpperCase = isUpperCaseType;
       characterChoicesObject.isNumber = isNumberType;
       characterChoicesObject.isSpecial = isSpecialCharType;
     }
   } else {
+    //validation password length here
     alert("Password length should be a number between 8 and 128.");
   }
-  //here check which type of characters were chosen; each choice push into an array of choices
+
+  //here check which type of characters were chosen; each choice push into the array of choices
   if (characterChoicesObject.isLowerCase) {
     characterOptionsArray.push(lowerCaseArray);
   }
@@ -164,26 +168,29 @@ function generatePassword() {
 
   //declare password array to store the random characters
   const passwordArray = [];
-  //here pick a random array of characters; then pick a random character and push it to password array variable
-  //add a function
-  function getRandomArray() {
+
+  //use function to get a random array from options array, and from that array a random character
+  function getRandomArrayAndCharacter() {
     const randomArray = Math.floor(
+      //get random array
       Math.random() * characterOptionsArray.length
     );
     const randomIndexArray = characterOptionsArray[randomArray];
 
-    //random character function
-
+    //get random character
     const randomCharacter = Math.floor(Math.random() * randomIndexArray.length);
     const returnRandomCharacter = randomIndexArray[randomCharacter];
     return returnRandomCharacter;
   }
 
+  //iterate for password length and call random character function to get random characters
   for (i = 0; i < parsedPassword; i++) {
-    let result = getRandomArray();
-
+    let result = getRandomArrayAndCharacter();
+    //each time push random character into the password array
     passwordArray.push(result);
   }
+
+  // transform password array into a string and return the password
   const passwordGenerated = passwordArray.join("");
   return passwordGenerated;
 }
